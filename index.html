@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nivalis Nights Guide | Beginner Tips, Jobs, Fishing, Romance & Release Hub</title>
+  <meta name="description" content="An English strategy hub for Nivalis Nights with beginner tips, business planning, fishing notes, romance tracking, system requirements, release details, and launch-ready walkthrough sections.">
+  <meta name="keywords" content="Nivalis Nights guide, Nivalis guide, Nivalis Nights tips, Nivalis Nights release date, Nivalis fishing, Nivalis romance, Nivalis jobs">
+  <meta property="og:title" content="Nivalis Nights Guide">
+  <meta property="og:description" content="Beginner-friendly English guide hub for Nivalis Nights: jobs, fishing, businesses, romance, night rules, release info, and launch-ready walkthroughs.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1488490/header.jpg">
+  <link rel="preconnect" href="https://shared.cloudflare.steamstatic.com">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0d12;
+      --panel: #111821;
+      --panel-2: #17212d;
+      --text: #edf6ff;
+      --muted: #9db0c2;
+      --line: rgba(255, 255, 255, .12);
+      --cyan: #6ee7ff;
+      --pink: #ff6fae;
+      --amber: #ffd166;
+      --green: #70e0a4;
+      --red: #ff7b7b;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px clamp(18px, 4vw, 48px);
+      background: rgba(10, 13, 18, .86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 182px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: #061119;
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      border-radius: 8px;
+      box-shadow: 0 0 22px rgba(110, 231, 255, .22);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    nav a {
+      padding: 8px 10px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      border-radius: 7px;
+    }
+
+    nav a:hover, nav a:focus-visible {
+      color: var(--text);
+      background: rgba(255, 255, 255, .08);
+      outline: none;
+    }
+
+    .searchbox {
+      position: relative;
+      width: min(300px, 26vw);
+      min-width: 180px;
+    }
+
+    .searchbox input {
+      width: 100%;
+      height: 38px;
+      padding: 0 12px 0 36px;
+      color: var(--text);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .searchbox svg {
+      position: absolute;
+      left: 11px;
+      top: 10px;
+      width: 18px;
+      height: 18px;
+      color: var(--muted);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      padding: clamp(96px, 13vw, 156px) clamp(18px, 5vw, 70px) 46px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(5, 9, 15, .97) 0%, rgba(5, 9, 15, .74) 46%, rgba(5, 9, 15, .25) 100%),
+        linear-gradient(0deg, #0a0d12 0%, rgba(10, 13, 18, 0) 28%),
+        url("https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1488490/header.jpg") center / cover no-repeat;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, .52fr);
+      gap: clamp(22px, 4vw, 54px);
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--pink);
+      border-radius: 999px;
+      box-shadow: 0 0 18px var(--pink);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(46px, 8vw, 104px);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: #d7e5f2;
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .btn.primary {
+      color: #061119;
+      background: linear-gradient(135deg, var(--cyan), var(--amber));
+      border-color: transparent;
+    }
+
+    .facts {
+      display: grid;
+      gap: 10px;
+    }
+
+    .fact {
+      padding: 14px;
+      background: rgba(10, 13, 18, .76);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--text);
+      font-size: 20px;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    main {
+      display: grid;
+      gap: 70px;
+      padding: 54px clamp(18px, 5vw, 70px) 80px;
+    }
+
+    section {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 22px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 560px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tagrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      color: #061119;
+      background: var(--cyan);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tag.pink { background: var(--pink); color: #160711; }
+    .tag.amber { background: var(--amber); }
+    .tag.green { background: var(--green); }
+
+    .wide {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 20px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+    }
+
+    .num {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      color: #061119;
+      background: var(--amber);
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 700px;
+      border-collapse: collapse;
+      background: var(--panel);
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: var(--cyan);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    td { color: var(--muted); }
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .tracker {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tracker button {
+      min-height: 92px;
+      padding: 14px;
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .tracker button.active {
+      border-color: var(--cyan);
+      box-shadow: inset 0 0 0 1px var(--cyan);
+    }
+
+    .tracker b { display: block; margin-bottom: 4px; }
+    .tracker span { color: var(--muted); font-size: 13px; }
+
+    .faq {
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
+      padding: 16px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 28px clamp(18px, 5vw, 70px);
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: #070a0f;
+    }
+
+    footer div {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hidden-by-search { display: none; }
+
+    @media (max-width: 920px) {
+      .topbar { align-items: stretch; flex-direction: column; }
+      nav { justify-content: flex-start; }
+      .searchbox { width: 100%; }
+      .hero-inner, .wide { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid, .tracker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .hero { min-height: 82vh; padding-top: 126px; }
+      .facts, .grid, .tracker { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      h1 { font-size: clamp(42px, 15vw, 68px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Site header">
+    <a class="brand" href="#top" aria-label="Nivalis Nights Guide home">
+      <span class="brand-mark">NN</span>
+      <span>Nivalis Nights Guide</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#guides">Guides</a>
+      <a href="#starter">Starter Route</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#romance">Romance</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <label class="searchbox" aria-label="Search guides">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="search" type="search" placeholder="Search tips, fishing, romance...">
+    </label>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">English strategy hub for a neon life sim</p>
+        <h1>Nivalis Nights</h1>
+        <p class="hero-copy">Plan your first week in the city: earn cash, run food stalls, fish the canals, build relationships, decorate your apartment, and prepare for every launch-day walkthrough.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#starter">Start the Beginner Route</a>
+          <a class="btn" href="#release">Check Release Info</a>
+        </div>
+      </div>
+      <aside class="facts" aria-label="Quick facts">
+        <div class="fact"><strong>Sep 29, 2026</strong><span>Current Steam release date</span></div>
+        <div class="fact"><strong>PC / Steam</strong><span>Wishlist and demo tracking hub</span></div>
+        <div class="fact"><strong>Life Sim + Business</strong><span>Restaurants, nightlife, fishing, homes</span></div>
+        <div class="fact"><strong>Launch Ready</strong><span>Guide pages structured for day-one expansion</span></div>
+      </aside>
+    </div>
+  </div>
+
+  <main>
+    <section id="guides" class="guide-block">
+      <div class="section-head">
+        <h2>Guide Index</h2>
+        <p>Essential sections a complete攻略站 needs: beginner decisions, economy, relationship tracking, collectables, system info, and answer-focused SEO pages.</p>
+      </div>
+      <div class="grid">
+        <article class="card searchable" data-keywords="beginner tips first day route money apartment city">
+          <h3>Beginner Tips</h3>
+          <p>First-session priorities: unlock income loops, avoid overbuying decor, learn travel routes, and keep a buffer for upgrades.</p>
+          <div class="tagrow"><span class="tag">Start Here</span><span class="tag amber">High Intent</span></div>
+        </article>
+        <article class="card searchable" data-keywords="business food stall restaurant ramen bar economy profit">
+          <h3>Business & Profit</h3>
+          <p>Track which venues scale best, what recipes are efficient, and when to reinvest profits into stock, staff, or property.</p>
+          <div class="tagrow"><span class="tag green">Money</span><span class="tag">Jobs</span></div>
+        </article>
+        <article class="card searchable" data-keywords="fishing canals fish locations bait rainy night">
+          <h3>Fishing Locations</h3>
+          <p>A launch table for canal spots, time windows, bait, weather notes, and fish value once the full build is available.</p>
+          <div class="tagrow"><span class="tag pink">Collecting</span><span class="tag">Map</span></div>
+        </article>
+        <article class="card searchable" data-keywords="romance characters gifts relationship dialogue dating">
+          <h3>Romance & Gifts</h3>
+          <p>Character pages should include schedules, liked gifts, dialogue flags, quest gates, and missed-event warnings.</p>
+          <div class="tagrow"><span class="tag pink">Social</span><span class="tag amber">Spoilers</span></div>
+        </article>
+        <article class="card searchable" data-keywords="night curfew danger crime travel safety city">
+          <h3>Night Rules</h3>
+          <p>Players will search for curfew, danger, travel, and nightlife answers. This hub separates confirmed rules from speculation.</p>
+          <div class="tagrow"><span class="tag">Systems</span><span class="tag green">FAQ</span></div>
+        </article>
+        <article class="card searchable" data-keywords="system requirements release date steam demo price platforms">
+          <h3>Release & Specs</h3>
+          <p>Release date, supported platforms, system requirements, demo status, and publisher links kept in one low-friction page.</p>
+          <div class="tagrow"><span class="tag amber">SEO</span><span class="tag">News</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="starter">
+      <div class="section-head">
+        <h2>First Week Route</h2>
+        <p>A practical launch-ready framework for new players. Replace placeholders with exact quest names after the final build lands.</p>
+      </div>
+      <div class="wide">
+        <article class="panel">
+          <h3>Day 1 Priorities</h3>
+          <ul class="list">
+            <li><span class="num">1</span><span>Follow the tutorial until free movement opens, then note every vendor, job board, apartment vendor, and fast-travel point.</span></li>
+            <li><span class="num">2</span><span>Spend only on income tools first. Cosmetic apartment buys can wait until a reliable daily route is paying out.</span></li>
+            <li><span class="num">3</span><span>Talk to every named NPC once. Relationship systems in life sims often hide unlocks behind first-contact flags.</span></li>
+            <li><span class="num">4</span><span>End the day with enough cash for food, transit, and one upgrade. A small reserve keeps the early game smooth.</span></li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>What Players Need Most</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Search Intent</th><th>Best Page Type</th><th>Why It Matters</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>How to make money fast</td><td>Profit route + table</td><td>Business progression is a core hook.</td></tr>
+                <tr><td>Best gifts / romance options</td><td>Character hub</td><td>High repeat traffic after launch.</td></tr>
+                <tr><td>Where to catch fish</td><td>Map + checklist</td><td>Collectable searches convert well.</td></tr>
+                <tr><td>Release date / demo</td><td>Evergreen FAQ</td><td>Pre-launch audience demand is strongest here.</td></tr>
+                <tr><td>Can my PC run it?</td><td>Specs page</td><td>Clear utility page with share value.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="jobs">
+      <div class="section-head">
+        <h2>Jobs & Economy</h2>
+        <p>Use this matrix to compare activities once exact earnings are known. The structure is ready for data-driven updates.</p>
+      </div>
+      <div class="table-wrap searchable" data-keywords="jobs economy money income fishing food stall bar restaurant property apartment">
+        <table>
+          <thead>
+            <tr><th>Activity</th><th>Early Value</th><th>Risk</th><th>Guide Notes To Add</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Food Stall / Restaurant Work</td><td>Likely core income</td><td>Stock and recipe costs</td><td>Profit per ingredient, best opening hours, upgrade priority</td></tr>
+            <tr><td>Fishing</td><td>Flexible side cash</td><td>Time and location windows</td><td>Bait, weather, canal map, rare fish table</td></tr>
+            <tr><td>Nightlife Jobs</td><td>Potential high payout</td><td>Time pressure and city safety</td><td>Route timing, NPC unlocks, repeatable shifts</td></tr>
+            <tr><td>Apartment / Property</td><td>Long-term progression</td><td>High upfront cost</td><td>Decoration effects, storage, rent or upgrade gates</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="romance">
+      <div class="section-head">
+        <h2>Romance Tracker</h2>
+        <p>Tap a card to mark the character page as planned. After release, this area becomes a gift tracker with schedules and event flags.</p>
+      </div>
+      <div class="tracker" aria-label="Romance guide tracker">
+        <button type="button" class="searchable" data-keywords="romance relationship gift character schedule"><b>Character Schedules</b><span>Daily locations, work hours, and event windows.</span></button>
+        <button type="button" class="searchable" data-keywords="gifts liked loved disliked romance"><b>Liked Gifts</b><span>Universal gifts, loved items, and wasteful purchases.</span></button>
+        <button type="button" class="searchable" data-keywords="dialogue choices dating quest"><b>Dialogue Choices</b><span>Choice outcomes and spoiler-safe answer notes.</span></button>
+        <button type="button" class="searchable" data-keywords="heart events dates romance ending"><b>Heart Events</b><span>Unlock requirements, missed scenes, and endings.</span></button>
+      </div>
+    </section>
+
+    <section id="release">
+      <div class="section-head">
+        <h2>Release Hub</h2>
+        <p>Keep these details near the top of the site because pre-launch users mostly search dates, platform support, demo access, and PC specs.</p>
+      </div>
+      <div class="grid">
+        <article class="card searchable" data-keywords="release date september 29 2026">
+          <h3>Release Date</h3>
+          <p>Steam currently lists Nivalis Nights as planned for September 29, 2026. Dates can move, so this page should be checked weekly.</p>
+        </article>
+        <article class="card searchable" data-keywords="platform steam pc windows">
+          <h3>Platforms</h3>
+          <p>The confirmed storefront focus is PC via Steam. Add console pages only when official platform pages exist.</p>
+        </article>
+        <article class="card searchable" data-keywords="system requirements minimum recommended pc">
+          <h3>System Requirements</h3>
+          <p>Use official minimum and recommended specs from the Steam listing, then add plain-English upgrade guidance for players.</p>
+        </article>
+      </div>
+      <p class="source-note">Research sources to maintain when publishing: official Steam page, official Nivalis site, developer/publisher announcements, and dated changelog entries.</p>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p>Short answers designed for search snippets and player confidence.</p>
+      </div>
+      <div class="faq">
+        <details class="searchable" data-keywords="what is nivalis nights">
+          <summary>What is Nivalis Nights?</summary>
+          <p>Nivalis Nights is a cyberpunk life sim set in a dense neon city, focused on earning a living, running businesses, fishing, decorating, exploring nightlife, and meeting characters.</p>
+        </details>
+        <details class="searchable" data-keywords="is nivalis nights same as nivalis">
+          <summary>Is Nivalis Nights the same as Nivalis?</summary>
+          <p>The Steam listing uses the Nivalis Nights name, while older official materials may still refer to the game as Nivalis. This guide uses Nivalis Nights for current search clarity.</p>
+        </details>
+        <details class="searchable" data-keywords="best beginner tip money">
+          <summary>What should I do first?</summary>
+          <p>Prioritize repeatable income, map knowledge, and NPC introductions before spending heavily on decoration. This keeps progression flexible once business costs begin to scale.</p>
+        </details>
+        <details class="searchable" data-keywords="spoilers guide policy">
+          <summary>Will this guide include spoilers?</summary>
+          <p>Yes, but major story, romance, and ending spoilers should live behind clear spoiler labels so beginner pages stay safe.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <span>Nivalis Nights Guide - independent fan strategy site prototype.</span>
+      <span>Last research pass: July 3, 2026.</span>
+    </div>
+  </footer>
+
+  <script>
+    const search = document.querySelector("#search");
+    const searchable = Array.from(document.querySelectorAll(".searchable"));
+    const trackerButtons = document.querySelectorAll(".tracker button");
+
+    search.addEventListener("input", () => {
+      const query = search.value.trim().toLowerCase();
+      searchable.forEach((item) => {
+        const haystack = `${item.textContent} ${item.dataset.keywords || ""}`.toLowerCase();
+        item.classList.toggle("hidden-by-search", query && !haystack.includes(query));
+      });
+    });
+
+    trackerButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>
