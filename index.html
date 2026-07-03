@@ -6,10 +6,12 @@
   <title>Nivalis Nights Guide | Beginner Tips, Jobs, Fishing, Romance & Release Hub</title>
   <meta name="description" content="An English strategy hub for Nivalis Nights with beginner tips, business planning, fishing notes, romance tracking, system requirements, release details, and launch-ready walkthrough sections.">
   <meta name="keywords" content="Nivalis Nights guide, Nivalis guide, Nivalis Nights tips, Nivalis Nights release date, Nivalis fishing, Nivalis romance, Nivalis jobs">
+  <link rel="canonical" href="https://nivalisnights.wiki/">
   <meta property="og:title" content="Nivalis Nights Guide">
   <meta property="og:description" content="Beginner-friendly English guide hub for Nivalis Nights: jobs, fishing, businesses, romance, night rules, release info, and launch-ready walkthroughs.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1488490/header.jpg">
+  <meta property="og:url" content="https://nivalisnights.wiki/">
   <link rel="preconnect" href="https://shared.cloudflare.steamstatic.com">
   <style>
     :root {
@@ -208,6 +210,41 @@
       color: #061119;
       background: linear-gradient(135deg, var(--cyan), var(--amber));
       border-color: transparent;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 86px);
+      gap: 10px;
+      margin-top: 24px;
+      max-width: 420px;
+    }
+
+    .countdown div {
+      min-height: 78px;
+      padding: 10px;
+      display: grid;
+      align-content: center;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .countdown strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--amber);
+    }
+
+    .countdown span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
     .facts {
@@ -470,8 +507,22 @@
       .facts, .grid, .tracker { grid-template-columns: 1fr; }
       .section-head { align-items: start; flex-direction: column; }
       h1 { font-size: clamp(42px, 15vw, 68px); }
+      .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nivalis Nights Wiki",
+    "url": "https://nivalisnights.wiki/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://nivalisnights.wiki/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="topbar" aria-label="Site header">
@@ -480,11 +531,11 @@
       <span>Nivalis Nights Guide</span>
     </a>
     <nav aria-label="Main navigation">
-      <a href="#guides">Guides</a>
-      <a href="#starter">Starter Route</a>
-      <a href="#jobs">Jobs</a>
-      <a href="#romance">Romance</a>
-      <a href="#faq">FAQ</a>
+      <a href="/beginner-guide/">Beginner</a>
+      <a href="/money-guide/">Money</a>
+      <a href="/fishing-guide/">Fishing</a>
+      <a href="/romance-guide/">Romance</a>
+      <a href="/about/">About</a>
     </nav>
     <label class="searchbox" aria-label="Search guides">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -500,7 +551,13 @@
         <p class="hero-copy">Plan your first week in the city: earn cash, run food stalls, fish the canals, build relationships, decorate your apartment, and prepare for every launch-day walkthrough.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#starter">Start the Beginner Route</a>
-          <a class="btn" href="#release">Check Release Info</a>
+          <a class="btn" href="/release-date/">Check Release Info</a>
+        </div>
+        <div class="countdown" aria-label="Countdown to planned Nivalis Nights release date">
+          <div><strong id="days">--</strong><span>Days</span></div>
+          <div><strong id="hours">--</strong><span>Hours</span></div>
+          <div><strong id="minutes">--</strong><span>Minutes</span></div>
+          <div><strong id="seconds">--</strong><span>Seconds</span></div>
         </div>
       </div>
       <aside class="facts" aria-label="Quick facts">
@@ -629,6 +686,7 @@
         <article class="card searchable" data-keywords="release date september 29 2026">
           <h3>Release Date</h3>
           <p>Steam currently lists Nivalis Nights as planned for September 29, 2026. Dates can move, so this page should be checked weekly.</p>
+          <p><a href="/release-date/">Read the full release date hub</a></p>
         </article>
         <article class="card searchable" data-keywords="platform steam pc windows">
           <h3>Platforms</h3>
@@ -637,6 +695,7 @@
         <article class="card searchable" data-keywords="system requirements minimum recommended pc">
           <h3>System Requirements</h3>
           <p>Use official minimum and recommended specs from the Steam listing, then add plain-English upgrade guidance for players.</p>
+          <p><a href="/system-requirements/">View system requirements guide</a></p>
         </article>
       </div>
       <p class="source-note">Research sources to maintain when publishing: official Steam page, official Nivalis site, developer/publisher announcements, and dated changelog entries.</p>
@@ -693,6 +752,26 @@
         button.classList.toggle("active");
       });
     });
+
+    const releaseTarget = new Date("2026-09-29T00:00:00-07:00").getTime();
+    const countdownIds = ["days", "hours", "minutes", "seconds"];
+
+    function updateCountdown() {
+      const diff = Math.max(0, releaseTarget - Date.now());
+      const values = [
+        Math.floor(diff / 86400000),
+        Math.floor((diff % 86400000) / 3600000),
+        Math.floor((diff % 3600000) / 60000),
+        Math.floor((diff % 60000) / 1000)
+      ];
+
+      countdownIds.forEach((id, index) => {
+        document.getElementById(id).textContent = String(values[index]).padStart(2, "0");
+      });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
