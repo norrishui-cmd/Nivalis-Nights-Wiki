@@ -448,6 +448,29 @@
     .tracker b { display: block; margin-bottom: 4px; }
     .tracker span { color: var(--muted); font-size: 13px; }
 
+    .linkhub {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .linkhub a {
+      min-height: 74px;
+      padding: 14px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .linkhub strong { display: block; }
+    .linkhub span { color: var(--muted); font-size: 13px; }
+
     .faq {
       display: grid;
       gap: 10px;
@@ -499,12 +522,12 @@
       .searchbox { width: 100%; }
       .hero-inner, .wide { grid-template-columns: 1fr; }
       .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .grid, .tracker { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid, .tracker, .linkhub { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 620px) {
       .hero { min-height: 82vh; padding-top: 126px; }
-      .facts, .grid, .tracker { grid-template-columns: 1fr; }
+      .facts, .grid, .tracker, .linkhub { grid-template-columns: 1fr; }
       .section-head { align-items: start; flex-direction: column; }
       h1 { font-size: clamp(42px, 15vw, 68px); }
       .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -532,9 +555,9 @@
     </a>
     <nav aria-label="Main navigation">
       <a href="/beginner-guide/">Beginner</a>
-      <a href="/money-guide/">Money</a>
-      <a href="/fishing-guide/">Fishing</a>
-      <a href="/romance-guide/">Romance</a>
+      <a href="/gameplay-systems/">Systems</a>
+      <a href="/business-guide/">Business</a>
+      <a href="/city-guide/">City</a>
       <a href="/about/">About</a>
     </nav>
     <label class="searchbox" aria-label="Search guides">
@@ -579,33 +602,45 @@
         <article class="card searchable" data-keywords="beginner tips first day route money apartment city">
           <h3>Beginner Tips</h3>
           <p>First-session priorities: unlock income loops, avoid overbuying decor, learn travel routes, and keep a buffer for upgrades.</p>
+          <p><a href="/beginner-guide/">Open the beginner guide</a></p>
           <div class="tagrow"><span class="tag">Start Here</span><span class="tag amber">High Intent</span></div>
         </article>
         <article class="card searchable" data-keywords="business food stall restaurant ramen bar economy profit">
           <h3>Business & Profit</h3>
           <p>Track which venues scale best, what recipes are efficient, and when to reinvest profits into stock, staff, or property.</p>
+          <p><a href="/business-guide/">Open the business guide</a></p>
           <div class="tagrow"><span class="tag green">Money</span><span class="tag">Jobs</span></div>
         </article>
         <article class="card searchable" data-keywords="fishing canals fish locations bait rainy night">
           <h3>Fishing Locations</h3>
           <p>A launch table for canal spots, time windows, bait, weather notes, and fish value once the full build is available.</p>
+          <p><a href="/fishing-guide/">Open the fishing guide</a></p>
           <div class="tagrow"><span class="tag pink">Collecting</span><span class="tag">Map</span></div>
         </article>
         <article class="card searchable" data-keywords="romance characters gifts relationship dialogue dating">
           <h3>Romance & Gifts</h3>
           <p>Character pages should include schedules, liked gifts, dialogue flags, quest gates, and missed-event warnings.</p>
+          <p><a href="/romance-guide/">Open the romance guide</a></p>
           <div class="tagrow"><span class="tag pink">Social</span><span class="tag amber">Spoilers</span></div>
         </article>
         <article class="card searchable" data-keywords="night curfew danger crime travel safety city">
           <h3>Night Rules</h3>
           <p>Players will search for curfew, danger, travel, and nightlife answers. This hub separates confirmed rules from speculation.</p>
+          <p><a href="/day-night-weather/">Open day/night planning</a></p>
           <div class="tagrow"><span class="tag">Systems</span><span class="tag green">FAQ</span></div>
         </article>
         <article class="card searchable" data-keywords="system requirements release date steam demo price platforms">
           <h3>Release & Specs</h3>
           <p>Release date, supported platforms, system requirements, demo status, and publisher links kept in one low-friction page.</p>
+          <p><a href="/release-date/">Open release hub</a></p>
           <div class="tagrow"><span class="tag amber">SEO</span><span class="tag">News</span></div>
         </article>
+      </div>
+      <div class="linkhub" aria-label="Expanded Nivalis Nights guide library">
+        <a href="/gameplay-systems/"><strong>Gameplay Systems</strong><span>Core loops and verified-data policy.</span></a>
+        <a href="/city-guide/"><strong>City Guide</strong><span>Routes, services, risk, and map planning.</span></a>
+        <a href="/apartment-decorating/"><strong>Apartment & Decor</strong><span>Home upgrades, storage, and spending priority.</span></a>
+        <a href="/platforms/"><strong>Platforms</strong><span>PC, Steam, console, and Steam Deck tracker.</span></a>
       </div>
     </section>
 

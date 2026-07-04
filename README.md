@@ -54,9 +54,16 @@ https://nivalisnights.wiki/sitemap.xml
 - `/release-date/` - release date hub
 - `/beginner-guide/` - beginner guide
 - `/money-guide/` - economy guide
+- `/gameplay-systems/` - gameplay systems overview
+- `/business-guide/` - business progression guide
+- `/city-guide/` - city exploration and route planning guide
+- `/day-night-weather/` - day-night and weather planning guide
+- `/apartment-decorating/` - apartment and decorating guide
+- `/platforms/` - platform status tracker
 - `/fishing-guide/` - fishing guide
 - `/romance-guide/` - romance guide
 - `/system-requirements/` - PC requirements hub
+- `/faq/` - FAQ page with structured data
 
 ## Notes
 
@@ -64,4 +71,4 @@ https://nivalisnights.wiki/sitemap.xml
 - No npm install is required.
 - The page uses external Steam-hosted imagery and inline CSS/JavaScript.
 - Research timestamp in the footer: July 3, 2026.
-- Sitemap last modified date: July 4, 2026.
+- Sitemap last modified date: July 5, 2026.
