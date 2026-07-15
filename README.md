@@ -1,4 +1,4 @@
-# Nivalis Nights Guide
+﻿# Nivalis Nights Guide
 
 English strategy and SEO guide site for **Nivalis Nights**.
 
@@ -63,7 +63,7 @@ https://nivalisnights.wiki/sitemap.xml
 - `/fishing-guide/` - fishing guide
 - `/romance-guide/` - romance guide
 - `/system-requirements/` - PC requirements hub
-- `/faq/` - FAQ page with structured data
+- `/faq/` - FAQ page with structured data`n- `/nivalis-vs-nivalis-nights/` - naming clarity page`n- `/demo-guide/` - demo availability tracker`n- `/price-editions/` - price and editions tracker`n- `/steam-deck-controller/` - handheld and controller tracker`n- `/best-tips/` - spoiler-free tips hub`n- `/checklists/` - launch verification hub`n- `/known-issues/` - issues and patch tracker
 
 ## Notes
 
@@ -71,4 +71,5 @@ https://nivalisnights.wiki/sitemap.xml
 - No npm install is required.
 - The page uses external Steam-hosted imagery and inline CSS/JavaScript.
 - Research timestamp in the footer: July 3, 2026.
-- Sitemap last modified date: July 5, 2026.
+- Sitemap last modified date: July 15, 2026.
+

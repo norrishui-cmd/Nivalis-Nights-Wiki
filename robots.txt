@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nivalisnights.wiki/sitemap.xml
+Host: nivalisnights.wiki
+
