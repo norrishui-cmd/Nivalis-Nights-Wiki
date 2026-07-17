@@ -1,0 +1,10 @@
+{
+  "name": "nivalis-nights-wiki",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-pages.mjs",
+    "audit": "node scripts/seo-audit.mjs",
+    "build": "npm run generate && npm run audit"
+  }
+}

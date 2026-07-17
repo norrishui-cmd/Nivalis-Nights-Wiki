@@ -1,0 +1,9 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const files=[];
+function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(['.git','node_modules'].includes(e.name))continue;const p=path.join(dir,e.name);e.isDirectory()?walk(p):e.name.endsWith('.html')&&files.push(p)}}walk(root);
+const seen=new Map(),errors=[];
+for(const file of files){if(file.endsWith('404.html'))continue;const s=fs.readFileSync(file,'utf8');const rel=path.relative(root,file);const one=(re,name)=>{const n=(s.match(re)||[]).length;if(n!==1)errors.push(`${rel}: expected one ${name}, found ${n}`)};one(/<title[ >]/gi,'title');one(/<meta name="description"/gi,'description');one(/rel="canonical"/gi,'canonical');one(/<h1[ >]/gi,'H1');const canonical=s.match(/rel="canonical" href="([^"]+)"/)?.[1];if(canonical){if(seen.has(canonical))errors.push(`${rel}: duplicate canonical with ${seen.get(canonical)}`);seen.set(canonical,rel)}if(!s.includes('application/ld+json'))errors.push(`${rel}: missing structured data`);if(/\b(To be tested|Unknown|launch table template|SEO handling)\b/i.test(s))errors.push(`${rel}: editorial placeholder language`);for(const href of [...s.matchAll(/href="(\/[^"]*)"/g)].map(m=>m[1])){const clean=href.split(/[?#]/)[0];if(!clean||clean==='/'||/\.[a-z0-9]+$/i.test(clean))continue;const target=path.join(root,clean.replace(/^\//,''),'index.html');if(!fs.existsSync(target))errors.push(`${rel}: broken internal link ${href}`)}const text=s.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();if(text.split(' ').length<180)errors.push(`${rel}: fewer than 180 visible words`)}
+if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`SEO audit passed: ${files.length-1} content pages, unique canonicals, no blocked placeholders.`);
