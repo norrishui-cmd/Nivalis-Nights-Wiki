@@ -2,7 +2,7 @@
 
 Current release target: **September 29, 2026 on Steam**. This plan was reviewed on July 17, 2026.
 
-Round-two status (July 18): **90 quality-approved sitemap URLs**. The second round added 41 evidence-backed pages and replaced the speculative legacy homepage. See `SEO_ROUND_2_REPORT.md` for the execution record and next ranked backlog.
+Round-three status (July 18): **112 quality-approved sitemap URLs**. The third round added 20 generated guides across official districts, housing, interior design, vendors, markets, relationships and fishing expansion. See `SEO_ROUND_3_REPORT.md` for the execution record and next ranked backlog.
 
 ## Baseline audit
 
@@ -33,7 +33,7 @@ The numbers below are capacity targets, not permission to publish empty pages. E
 ## Publishing phases
 
 1. **Foundation (July 17–31):** repair current thin pages, publish evidence-backed hubs, unify metadata/schema, establish automated quality checks, submit the clean sitemap. Target: 40–60 URLs.
-2. **Pre-release authority (August):** use official news, trailers and developer posts for confirmed system guides; build launch data schemas and editorial checklists without indexing empty entities. Target: 90–150 URLs only if evidence supports them.
+2. **Pre-release authority (August):** use official news, trailers and developer posts for confirmed system guides; build launch data schemas and editorial checklists without indexing empty entities. Current: 112 URLs; target: 130–180 only if evidence supports them.
 3. **Launch capture (September 1–28):** release countdown, PC readiness, languages, controls, business primers and spoiler-safe FAQs; prepare but do not index entity drafts. Target: 150–250 quality URLs.
 4. **Launch sprint (September 29–October 13):** verify names and values in game, publish quests, ingredients, meals, furniture, characters, fish and locations in controlled batches. Target: 900–1,300 URLs.
 5. **Depth and completion (October 14 onward):** add tested strategies, upgrades, relationship events, choices, endings, achievements, bugs and patch changes. Reach 2,000 only after all leaves pass the gate.
