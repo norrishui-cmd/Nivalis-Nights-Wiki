@@ -11,12 +11,18 @@ const errors=[];
 const unique={canonical:new Map(),title:new Map(),description:new Map(),h1:new Map()};
 const canonicals=new Set();
 const paragraphs=new Map();
+const adsensePublisher='ca-pub-9505220977121599';
+const adsenseScript=`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisher}`;
 const remember=(kind,value,rel)=>{if(!value)return;if(unique[kind].has(value))errors.push(`${rel}: duplicate ${kind} with ${unique[kind].get(value)}`);else unique[kind].set(value,rel)};
 
 for(const file of files){
-  if(file.endsWith('404.html'))continue;
   const s=fs.readFileSync(file,'utf8');
   const rel=path.relative(root,file);
+  const accountTags=(s.match(/<meta name="google-adsense-account" content="ca-pub-9505220977121599">/g)||[]).length;
+  const adsenseScripts=(s.match(/https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-9505220977121599/g)||[]).length;
+  if(accountTags!==1)errors.push(`${rel}: expected one AdSense account meta tag, found ${accountTags}`);
+  if(adsenseScripts!==1)errors.push(`${rel}: expected one AdSense loader, found ${adsenseScripts}`);
+  if(file.endsWith('404.html'))continue;
   const one=(re,name)=>{const n=(s.match(re)||[]).length;if(n!==1)errors.push(`${rel}: expected one ${name}, found ${n}`)};
   one(/<title[ >]/gi,'title');
   one(/<meta name="description"/gi,'description');
@@ -57,6 +63,8 @@ for(const file of files){
 }
 
 const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
+const adsTxt=fs.readFileSync(path.join(root,'ads.txt'),'utf8').trim();
+if(adsTxt!=='google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0')errors.push('ads.txt: missing or incorrect Google publisher record');
 const sitemapList=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 const sitemapUrls=new Set(sitemapList);
 if(sitemapList.length!==sitemapUrls.size)errors.push(`sitemap: contains ${sitemapList.length-sitemapUrls.size} duplicate URL entries`);
