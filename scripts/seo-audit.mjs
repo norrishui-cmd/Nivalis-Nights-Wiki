@@ -33,8 +33,9 @@ for(const file of files){
   if(!s.includes('application/ld+json'))errors.push(`${rel}: missing structured data`);
   if(/\b(To be tested|Unknown|launch table template|SEO handling|lorem ipsum)\b/i.test(s))errors.push(`${rel}: editorial placeholder language`);
   if(rel!=='index.html'){
-    const answer=s.match(/<div class="answer"><strong>Quick answer:<\/strong>\s*([^<]+)<\/div>/i)?.[1]?.trim();
-    if(!answer||answer.split(/\s+/).length<12)errors.push(`${rel}: missing a substantive direct answer`);
+    const answer=s.match(/<div class="answer"><strong>(?:Quick answer:|Kurzantwort:|要点：)<\/strong>\s*([^<]+)<\/div>/i)?.[1]?.trim();
+    const substantive=rel.startsWith('ja/')?answer?.length>=35:answer?.split(/\s+/).length>=12;
+    if(!answer||!substantive)errors.push(`${rel}: missing a substantive direct answer`);
   }
 
   for(const href of [...s.matchAll(/href="(\/[^"]*)"/g)].map(m=>m[1])){
@@ -45,7 +46,8 @@ for(const file of files){
   }
 
   const text=s.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  if(text.split(' ').length<180)errors.push(`${rel}: fewer than 180 visible words`);
+  const enoughDepth=rel.startsWith('ja/')?text.replace(/\s+/g,'').length>=650:text.split(' ').length>=180;
+  if(!enoughDepth)errors.push(`${rel}: insufficient visible content depth`);
 
   for(const match of s.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/gi)){
     const p=match[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
@@ -55,7 +57,9 @@ for(const file of files){
 }
 
 const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
-const sitemapUrls=new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]));
+const sitemapList=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+const sitemapUrls=new Set(sitemapList);
+if(sitemapList.length!==sitemapUrls.size)errors.push(`sitemap: contains ${sitemapList.length-sitemapUrls.size} duplicate URL entries`);
 for(const url of canonicals)if(!sitemapUrls.has(url))errors.push(`sitemap: missing canonical ${url}`);
 for(const url of sitemapUrls)if(!canonicals.has(url))errors.push(`sitemap: URL has no matching canonical ${url}`);
 

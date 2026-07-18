@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "node scripts/generate-pages.mjs",
+    "generate": "node scripts/generate-pages.mjs && node scripts/generate-i18n.mjs",
     "audit": "node scripts/seo-audit.mjs",
     "build": "npm run generate && npm run audit"
   }
