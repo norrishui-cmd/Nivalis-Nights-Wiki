@@ -2,6 +2,8 @@
 
 Current release target: **September 29, 2026 on Steam**. This plan was reviewed on July 17, 2026.
 
+Round-two status (July 18): **90 quality-approved sitemap URLs**. The second round added 41 evidence-backed pages and replaced the speculative legacy homepage. See `SEO_ROUND_2_REPORT.md` for the execution record and next ranked backlog.
+
 ## Baseline audit
 
 - Uploaded build: 22 canonical indexable URLs plus a 404 page.
