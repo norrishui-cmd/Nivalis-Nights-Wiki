@@ -71,6 +71,18 @@ for(const tab of ['guides','databases','businesses','characters','quests','faq']
   const moduleLinks=[...html.matchAll(/href="\/news\/[^"]+\/"/g)].length;
   if(moduleLinks!==5)errors.push(`${tab}/index.html: expected 5 news module links, found ${moduleLinks}`);
 }
+const faqHtml=fs.readFileSync(path.join(root,'faq','index.html'),'utf8');
+const faqSchemaBlock=[...faqHtml.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+  .map(m=>{try{return JSON.parse(m[1])}catch{return null}}).find(x=>x?.['@type']==='FAQPage');
+if(faqSchemaBlock?.mainEntity?.length!==50)errors.push(`faq: expected 50 FAQPage questions, found ${faqSchemaBlock?.mainEntity?.length||0}`);
+const faqAnchors=[...faqHtml.matchAll(/<article class="panel faq-item" id="([^"]+)">/g)].map(m=>m[1]);
+if(faqAnchors.length!==50||new Set(faqAnchors).size!==50)errors.push(`faq: expected 50 unique visible FAQ anchors, found ${new Set(faqAnchors).size}`);
+for(const tab of ['guides','databases','businesses','characters','quests']){
+  const html=fs.readFileSync(path.join(root,tab,'index.html'),'utf8');
+  const links=[...html.matchAll(/href="\/faq\/#([^"]+)"/g)].map(m=>m[1]);
+  if(links.length!==6)errors.push(`${tab}/index.html: expected 6 related FAQ links, found ${links.length}`);
+  for(const id of links)if(!faqAnchors.includes(id))errors.push(`${tab}/index.html: related FAQ target #${id} is missing`);
+}
 const adsTxt=fs.readFileSync(path.join(root,'ads.txt'),'utf8').trim();
 if(adsTxt!=='google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0')errors.push('ads.txt: missing or incorrect Google publisher record');
 const sitemapList=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
