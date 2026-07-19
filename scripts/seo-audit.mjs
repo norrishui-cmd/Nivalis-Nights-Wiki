@@ -83,6 +83,17 @@ for(const tab of ['guides','databases','businesses','characters','quests']){
   if(links.length!==6)errors.push(`${tab}/index.html: expected 6 related FAQ links, found ${links.length}`);
   for(const id of links)if(!faqAnchors.includes(id))errors.push(`${tab}/index.html: related FAQ target #${id} is missing`);
 }
+const liveSlugs=['first-person-perspective','character-customization','photo-mode','offline-play','ultrawide-support','vr-support','mod-support','camus-return','printed-meat','furniture-item-count','voiced-characters','demo-status'];
+for(const slug of liveSlugs){
+  const file=path.join(root,slug,'index.html');
+  if(!fs.existsSync(file))errors.push(`live data: missing /${slug}/`);
+}
+for(const tab of ['guides','databases','businesses','characters','quests']){
+  const html=fs.readFileSync(path.join(root,tab,'index.html'),'utf8');
+  const links=[...html.matchAll(/<section class="live-data">[\s\S]*?<\/section>/g)].flatMap(m=>[...m[0].matchAll(/href="\/([^"#]+)\/"/g)].map(x=>x[1]));
+  if(links.length!==6)errors.push(`${tab}/index.html: expected 6 latest-data links, found ${links.length}`);
+  for(const slug of links)if(!liveSlugs.includes(slug))errors.push(`${tab}/index.html: unexpected latest-data target /${slug}/`);
+}
 const adsTxt=fs.readFileSync(path.join(root,'ads.txt'),'utf8').trim();
 if(adsTxt!=='google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0')errors.push('ads.txt: missing or incorrect Google publisher record');
 const sitemapList=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
