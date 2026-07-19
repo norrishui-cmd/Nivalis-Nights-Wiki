@@ -467,7 +467,7 @@ for(const p of pages){const dir=path.join(root,p[0]);fs.mkdirSync(dir,{recursive
 fs.writeFileSync(path.join(root,'index.html'),renderHome());
 const urls=['/'];
 for(const e of fs.readdirSync(root,{withFileTypes:true})){
-  if(e.isDirectory()&&!['de','ja'].includes(e.name)&&fs.existsSync(path.join(root,e.name,'index.html')))urls.push(`/${e.name}/`);
+  if(e.isDirectory()&&!['de','ja','news'].includes(e.name)&&fs.existsSync(path.join(root,e.name,'index.html')))urls.push(`/${e.name}/`);
 }
 urls.sort((a,b)=>a==='/'?-1:b==='/'?1:a.localeCompare(b));
 const dateBySlug=new Map([['/',round2Date],...pages.map(p=>[`/${p[0]}/`,p[5]||updated])]);

@@ -63,6 +63,14 @@ for(const file of files){
 }
 
 const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
+const newsArticles=files.filter(file=>path.relative(root,file).startsWith(`news${path.sep}`)&&path.basename(path.dirname(file))!=='news');
+if(newsArticles.length!==30)errors.push(`news: expected 30 independent articles, found ${newsArticles.length}`);
+for(const file of newsArticles)if(!fs.readFileSync(file,'utf8').includes('"@type":"NewsArticle"'))errors.push(`${path.relative(root,file)}: missing NewsArticle schema`);
+for(const tab of ['guides','databases','businesses','characters','quests','faq']){
+  const html=fs.readFileSync(path.join(root,tab,'index.html'),'utf8');
+  const moduleLinks=[...html.matchAll(/href="\/news\/[^"]+\/"/g)].length;
+  if(moduleLinks!==5)errors.push(`${tab}/index.html: expected 5 news module links, found ${moduleLinks}`);
+}
 const adsTxt=fs.readFileSync(path.join(root,'ads.txt'),'utf8').trim();
 if(adsTxt!=='google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0')errors.push('ads.txt: missing or incorrect Google publisher record');
 const sitemapList=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
