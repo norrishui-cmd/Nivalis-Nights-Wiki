@@ -83,6 +83,18 @@ for(const tab of ['guides','databases','businesses','characters','quests']){
   if(links.length!==6)errors.push(`${tab}/index.html: expected 6 related FAQ links, found ${links.length}`);
   for(const id of links)if(!faqAnchors.includes(id))errors.push(`${tab}/index.html: related FAQ target #${id} is missing`);
 }
+const extendedI18n=['first-person-perspective','character-customization','photo-mode','offline-play','ultrawide-support','vr-support','mod-support','camus-return','printed-meat','furniture-item-count','voiced-characters','demo-status'];
+for(const lang of ['de','ja'])for(const slug of extendedI18n){
+  const file=path.join(root,lang,slug,'index.html');
+  if(!fs.existsSync(file))errors.push(`i18n: missing /${lang}/${slug}/`);
+}
+for(const file of files){
+  const html=fs.readFileSync(file,'utf8');
+  if(!/<nav class="nav wrap"/.test(html))continue;
+  const menus=(html.match(/<details class="language-menu">/g)||[]).length;
+  if(menus!==1)errors.push(`${path.relative(root,file)}: expected one language dropdown, found ${menus}`);
+  for(const lang of ['en','de','ja'])if(!html.includes(`hreflang="${lang}"`))errors.push(`${path.relative(root,file)}: language dropdown missing ${lang}`);
+}
 const liveSlugs=['first-person-perspective','character-customization','photo-mode','offline-play','ultrawide-support','vr-support','mod-support','camus-return','printed-meat','furniture-item-count','voiced-characters','demo-status'];
 for(const slug of liveSlugs){
   const file=path.join(root,slug,'index.html');
